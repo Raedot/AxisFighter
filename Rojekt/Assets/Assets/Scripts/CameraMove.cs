@@ -44,10 +44,13 @@ public class CameraMove : MonoBehaviour {
 	void toggleCameraPos() {
 		if (isOnTop) {
 			isOnTop = false;
-			animation.Play("CameraMoveSide", PlayMode.StopAll);
+			animation["CameraMove"].speed = 1.0f;
+			animation.Play("CameraMove");
 		} else {
 			isOnTop = true;
-			animation.Play("CameraMoveTop", PlayMode.StopAll);
+			animation["CameraMove"].speed = -1.0f;
+			animation["CameraMove"].time = animation["CameraMove"].length;
+			animation.Play("CameraMove");
 		}
 
 
